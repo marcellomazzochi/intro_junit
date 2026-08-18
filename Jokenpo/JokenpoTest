@@ -1,0 +1,34 @@
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class Jokenpo {
+
+    public Main jokenpo;
+
+    @BeforeEach
+    public void inicializa() {
+        jokenpo = new Main();
+    }
+
+    @Test
+     public void VitoriaDoJogador1() {
+        assertEquals(1, jokenpo.jogar(1, 2));
+        assertEquals(1, jokenpo.jogar(2, 3));
+        assertEquals(1, jokenpo.jogar(3, 1));
+    }
+
+    @Test
+    public void VitoriaDoJogador2() {
+        assertEquals(2, jokenpo.jogar(2, 1));
+        assertEquals(2, jokenpo.jogar(3, 2));
+        assertEquals(2, jokenpo.jogar(1, 3));
+    }
+
+    @Test
+    public void EmpateEntreJogadores() {
+        assertEquals(0, jokenpo.jogar(1, 1));
+        assertEquals(0, jokenpo.jogar(2, 2));
+        assertEquals(0, jokenpo.jogar(3, 3));
+    }
+}
